@@ -1,4 +1,3 @@
-
 # ☀️ SunSync — Solar Self-Consumption & Price Optimizer
 
 **When should a German home use, store, or export its solar power?**
@@ -9,9 +8,8 @@ gain and money difference versus a naive setup.
 
 Built with Python · pvlib · Streamlit · Plotly.
 
-<img width="1440" height="765" alt="Screenshot 2026-07-02 at 2 32 09 PM" src="https://github.com/user-attachments/assets/2716ba76-1212-46ba-9bf9-4866f17c9362" />
-<img width="1440" height="765" alt="Screenshot 2026-07-02 at 2 33 11 PM" src="https://github.com/user-attachments/assets/4b0a54ef-8830-4183-89c9-92dd6fc01a6c" />
-
+<!-- Add a screenshot/GIF here once you run it:
+![SunSync day chart](assets/screenshot.png)
 -->
 
 ---
@@ -127,3 +125,4 @@ hardware. Verify figures before making purchase decisions.
 
 ## License
 
+Add a license (e.g. MIT) before publishing.
