@@ -65,12 +65,14 @@ with st.sidebar:
     day = st.date_input("Day", dt.date.today())
 
 # ---- data ----
-price, is_live = fetch_awattar(day)
-# align price index to the model day
-pv = pv_generation(day, lat, lon, tz, kwp=kwp, tilt=tilt,
-                   azimuth=azimuth, weather_factor=weather)
-load = daily_load_profile(day, daily_kwh)
-# make the three series share one clean hourly index
+# Align price to the model's 24-hour index by position, padding/trimming
+# safely so a feed with 23, 25, or 96 points can't crash the app.
+price = price.reset_index(drop=True)
+if len(price) >= len(pv):
+    price = price.iloc[:len(pv)]
+else:
+    # pad short feeds by forward-filling the last known price
+    price = price.reindex(range(len(pv))).ffill().bfill()
 price.index = pv.index
 
 if is_live:
